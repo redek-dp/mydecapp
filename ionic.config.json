@@ -1,0 +1,8 @@
+{
+  "name": "mydecapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react",
+  "id": "23904b7e"
+}

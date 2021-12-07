@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "mydecapp",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}
