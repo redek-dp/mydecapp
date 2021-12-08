@@ -3,6 +3,27 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/rea
 import { IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonItem, IonIcon, IonLabel, IonButton } from '@ionic/react';
 import { pin, wifi, wine, warning, walk, map } from 'ionicons/icons';
 
+type Item = {
+    src: string;
+    titolo: string;
+    href: string;
+    sobtitulo: string;
+};
+const items: Item[] = [
+    {
+        titolo: 'Brasil BR',
+        src: 'https://via.placeholder.com/500x200/3b2d50/bdbac1?text=DAVIDSONBPE-01',
+        href: 'https://www.google.com.br/maps/@-14.7831796,-49.2694105,4.88z?hl=pt-BR',
+        sobtitulo: 'Pais da America do sul'
+    },
+    {
+        titolo: 'Italia IT',
+        src: 'https://via.placeholder.com/500x200/3b2d50/bdbac1?text=DAVIDSONBPE-02',
+        href: 'https://www.google.com.br/maps/@42.8068309,11.208839,5.13z?hl=pt-BR',
+        sobtitulo: 'Pais da europeu'
+    }
+];
+
 const Tab2: React.FC = () => {
     return (
         <IonPage>
@@ -14,45 +35,22 @@ const Tab2: React.FC = () => {
 
             <IonContent fullscreen>
 
-                <IonCard className="ion-align-items-center">
+                    {items.map((image, i) => (
+                        <IonCard key={i} >
 
-                    <img src="https://via.placeholder.com/500x200/3b2d50/bdbac1?text=DAVIDSONBPE" width="100%" />
+                            <img src={image.src} width="100%" />
 
-                    <IonCardHeader>
-                        <IonCardTitle>Brasilha DF</IonCardTitle>
-                    </IonCardHeader>
+                            <IonCardHeader>
+                                <IonCardTitle>{image.titolo}</IonCardTitle>
+                            </IonCardHeader>
+                            <IonCardContent>{image.sobtitulo}</IonCardContent>
 
-                    <IonCardContent>
-                        This is content, without any paragraph or header tags,
-                        within an ion-cardContent element.
-                    </IonCardContent>
-
-                    <IonItem href="https://www.google.com.br/maps/@-21.2942557,-46.7893271,14.75z?hl=pt-BR" target="_blank" className="ion-activated">
-                        <IonIcon icon={map} slot="start" />
-                        <IonLabel>Mapa Gelocalização activated</IonLabel>
-                    </IonItem>
-
-                </IonCard>
-
-                <IonCard className="ion-align-items-center">
-
-                    <img src="https://via.placeholder.com/500x200/3b2d50/bdbac1?text=DAVIDSONBPE" width="100%" />
-
-                    <IonCardHeader>
-                        <IonCardTitle>Maianme US</IonCardTitle>
-                    </IonCardHeader>
-
-                    <IonCardContent>
-                        This is content, without any paragraph or header tags,
-                        within an ion-cardContent element.
-                    </IonCardContent>
-
-                    <IonItem href="https://www.google.com.br/maps/@-21.2942557,-46.7893271,14.75z?hl=pt-BR" target="_blank" className="ion-activated">
-                        <IonIcon icon={map} slot="start" />
-                        <IonLabel>Mapa Gelocalização activated</IonLabel>
-                    </IonItem>
-
-                </IonCard>
+                            <IonItem href={image.href} target="_blank" className="ion-activated">
+                                <IonIcon icon={map} slot="start" />
+                                <IonLabel>Mapa Gelocalização activated</IonLabel>
+                            </IonItem>
+                        </IonCard>
+                    ))}
 
             </IonContent>
         </IonPage>
